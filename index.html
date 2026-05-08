@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema Az</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Cinema Az</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-btn active" data-page="home" data-i18n="nav.home">Ana səhifə</button>
+        <button class="nav-btn" data-page="movies" data-i18n="nav.movies">Filmlər</button>
+        <button class="nav-btn" data-page="series" data-i18n="nav.series">Seriallar</button>
+        <button class="nav-btn" data-page="episodes" data-i18n="nav.episodes">Yeni Bölümlər</button>
+      </nav>
+      <div class="top-controls">
+        <input id="searchInput" type="search" placeholder="Film və serial axtar..." data-i18n-placeholder="search.placeholder" />
+        <select id="languageSelect" aria-label="Language selector">
+          <option value="az">Azərbaycan dili</option>
+          <option value="tr">Türkçe</option>
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <h1 data-i18n="hero.title">IMDb ilə sinxron gündəlik yenilənən top filmlər</h1>
+        <p data-i18n="hero.subtitle">Cinema Az Netflix tərzində interfeyslə ən yeni filmləri, serialları və epizodları göstərir.</p>
+      </section>
+
+      <section class="section" id="sectionTitleWrap">
+        <h2 id="sectionTitle" data-i18n="sections.topMovies">Ən Populyar Yeni Filmlər</h2>
+        <p id="sectionDescription" data-i18n="sections.desc.home">IMDb/VidAPI feed-i ilə gündəlik yenilənir.</p>
+      </section>
+
+      <section id="catalog" class="grid" aria-live="polite"></section>
+
+      <section id="playerSection" class="player-section hidden">
+        <div class="player-header">
+          <h3 id="playerTitle"></h3>
+          <button id="closePlayer" data-i18n="player.close">Bağla</button>
+        </div>
+        <div class="player-frame-wrap">
+          <iframe id="playerFrame" title="Cinema player" allowfullscreen></iframe>
+        </div>
+      </section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="card">
+        <img class="poster" alt="" loading="lazy" />
+        <div class="meta">
+          <h3 class="title"></h3>
+          <p class="details"></p>
+          <div class="tags"></div>
+          <button class="play-btn" data-i18n="card.watch">İzləmək</button>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
